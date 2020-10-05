@@ -109,10 +109,11 @@ class WikifierOutput extends Component<WikifierOutputProperties, {}> {
             rowHeight={18}
             rowStyle={{ background: "white" }}
             defaultColDef={{
-            minWidth: 40,
-            lockPosition: true,
-            resizable: true,
-            sortable: false,
+              flex: 1,
+              minWidth: 50,
+              lockPosition: true,
+              resizable: true,
+              sortable: false,
             }}
         >
         </AgGridReact>
