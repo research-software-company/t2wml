@@ -99,6 +99,7 @@ class TableViewer extends Component<{}, TableState> {
     this.handleSelectCell = this.handleSelectCell.bind(this);
     this.handleSelectSheet = this.handleSelectSheet.bind(this);
     this.handleRangeSelection = this.handleRangeSelection.bind(this);
+    this.handleClearSelection = this.handleClearSelection.bind(this);
 
     wikiStore.table.updateYamlRegions = (newYamlRegions = null) => this.updateYamlRegions(newYamlRegions);
     wikiStore.table.updateQnodeCells = (qnodes?: any, rowData?: any) => this.updateQnodeCells(qnodes, rowData);
@@ -138,6 +139,13 @@ class TableViewer extends Component<{}, TableState> {
         end += range.endRow.rowIndex;
       }
       console.log(`Selected range: from ${start} to ${end}.`)
+    })
+  }
+
+  async handleClearSelection(event:any) {
+    this.gridApi.clearRangeSelection()
+    this.setState({
+      showAnnotateButton: false,
     })
   }
 
