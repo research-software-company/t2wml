@@ -11,6 +11,9 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 import { ChangeDetectionStrategyType } from 'ag-grid-react/lib/changeDetectionService';
 
 // console.log
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
+
 import { LOG, WikifierData, ErrorMessage, Cell } from '../../common/general';
 import RequestService from '../../common/service';
 import ToastMessage from '../../common/toast';
@@ -657,6 +660,18 @@ class TableViewer extends Component<{}, TableState> {
                 Upload data file
               </Button>
             </OverlayTrigger>
+
+            {/* button to trigger the user annotations modal */}
+            {this.state.showAnnotateButton && (
+              <Button
+                className="d-inline-block float-right"
+                variant="outline-light"
+                size="sm"
+                style={{ padding: "0rem 0.5rem", marginRight: "1rem" }}
+                onClick={this.handleShowAnnotate}>
+                Annotate selection <FontAwesomeIcon icon={faEdit} />
+              </Button>
+            )}
 
             {/* TODO: move following inputs to another place */}
             {/* hidden input of table file */}
