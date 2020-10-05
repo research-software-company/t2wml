@@ -664,10 +664,11 @@ class TableViewer extends Component<{}, TableState> {
               rowStyle={{ background: "white" }}
               defaultColDef={{
                 // All options: https://www.ag-grid.com/javascript-grid-column-properties/
+                flex: 1,
 
                 // width
                 width: 70,
-                minWidth: 40,
+                minWidth: 50,
                 // maxWidth: 200,
 
                 // others
