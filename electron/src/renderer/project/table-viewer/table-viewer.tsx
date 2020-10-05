@@ -50,7 +50,7 @@ interface TableState  {
   isCSV: boolean,         // csv: true   excel: false
   sheetNames: Array<string> | null,     // csv: null    excel: [ "sheet1", "sheet2", ... ]
   currSheetName: string | null,  // csv: null    excel: "sheet1"
-  columnDefs:  Array<Column>; 
+  columnDefs:  Array<Column>;
   rowData: any; // Array<object>; // todo: add interface
   selectedCell: Cell | null;
   yamlRegions: any; // null,
@@ -68,7 +68,7 @@ class TableViewer extends Component<{}, TableState> {
   constructor(props: {}) {
     super(props);
     this.requestService = new RequestService();
-    
+
     // init state
     this.state = {
       // appearance
@@ -113,7 +113,7 @@ class TableViewer extends Component<{}, TableState> {
   }
 
   async handleOpenTableFile(event:any) {
-    this.setState({ errorMessage: {} as ErrorMessage });  
+    this.setState({ errorMessage: {} as ErrorMessage });
     // remove current status
     wikiStore.table.isCellSelectable = false;
     this.updateSelectedCell();
@@ -185,7 +185,7 @@ class TableViewer extends Component<{}, TableState> {
       console.log(error);
       error.errorDescription += "\n\nCannot upload data file!";
       this.setState({ errorMessage: error });
-    
+
       // follow-ups (failure)
       wikiStore.table.showSpinner = false;
       wikiStore.wikifier.showSpinner = false;
@@ -247,7 +247,7 @@ class TableViewer extends Component<{}, TableState> {
     }
   }
 
-  async handleSelectCell(params: any) { 
+  async handleSelectCell(params: any) {
     this.setState({ errorMessage: {} as ErrorMessage });
     // remove current status
     this.updateSelectedCell();
@@ -285,7 +285,7 @@ class TableViewer extends Component<{}, TableState> {
       console.log(json);
 
     //   const { error } = json;
-    //   // if failure      
+    //   // if failure
     //   if (error) {
     //     throw {errorDescription: error.value} as ErrorMessage;
     //   }
@@ -328,12 +328,12 @@ class TableViewer extends Component<{}, TableState> {
     // send request
     const sheetName = event.target.innerHTML;
     console.log("<TableViewer> -> %c/change_sheet%c for sheet: %c" + sheetName, LOG.link, LOG.default, LOG.highlight);
-    try{ 
+    try{
       const json = await this.requestService.changeSheet(wikiStore.projects.current!.folder, sheetName);
       console.log("<TableViewer> <- %c/change_sheet%c with:", LOG.link, LOG.default);
       console.log(json);
 
-    
+
       const { tableData, wikifierData, yamlData } = json;
 
       // load table data
@@ -476,7 +476,7 @@ class TableViewer extends Component<{}, TableState> {
     const styleNames = Object.keys(presets);
     for (let i = 0; i < styleNames.length; i++) {
       const styleName = styleNames[i];
-    
+
       let cells = undefined;
       if (dict[styleName]){
        cells = dict[styleName]['list'];
@@ -620,7 +620,7 @@ class TableViewer extends Component<{}, TableState> {
                 Upload data file
               </Button>
             </OverlayTrigger>
-            
+
             {/* TODO: move following inputs to another place */}
             {/* hidden input of table file */}
             <input
@@ -632,16 +632,16 @@ class TableViewer extends Component<{}, TableState> {
               onClick={(event) => { (event.target as HTMLInputElement).value = '' }}
             />
           </Card.Header>
-          
+
           {/* table */}
           <Card.Body className="ag-theme-balham w-100 h-100 p-0" style={{ overflow: "hidden" }}>
-           
+
             {/* loading spinner */}
             <div className="mySpinner" hidden={!wikiStore.table.showSpinner}>
               <Spinner animation="border" />
             </div>
 
-            <TableToast 
+            <TableToast
                 selectedCell={this.state.selectedCell}
                 showToast0={this.state.showToast0}
                 showToast1={this.state.showToast1}
