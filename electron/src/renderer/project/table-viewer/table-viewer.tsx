@@ -98,6 +98,7 @@ class TableViewer extends Component<{}, TableState> {
     this.handleOpenWikifierFile = this.handleOpenWikifierFile.bind(this);
     this.handleSelectCell = this.handleSelectCell.bind(this);
     this.handleSelectSheet = this.handleSelectSheet.bind(this);
+    this.handleRangeSelection = this.handleRangeSelection.bind(this);
 
     wikiStore.table.updateYamlRegions = (newYamlRegions = null) => this.updateYamlRegions(newYamlRegions);
     wikiStore.table.updateQnodeCells = (qnodes?: any, rowData?: any) => this.updateQnodeCells(qnodes, rowData);
@@ -111,6 +112,33 @@ class TableViewer extends Component<{}, TableState> {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     // console.log("<TableViewer> inited ag-grid and retrieved its API");
+  }
+
+  async handleRangeSelection(event:any) {
+    this.setState({
+      showAnnotateButton: true,
+    })
+
+    const cellRanges = this.gridApi.getCellRanges();
+    cellRanges.map((range, index) => {
+      let start = '';
+      let end = '';
+      if ( !!range.columns.length ) {
+        start += range.columns[0].colId;
+        if ( range.columns.length > 1 ) {
+          end += range.columns[range.columns.length-1].colId;
+        } else {
+          end += range.columns[0].colId;
+        }
+      }
+      if ( !!range.startRow ) {
+        start += range.startRow.rowIndex;
+      }
+      if ( !!range.endRow ) {
+        end += range.endRow.rowIndex;
+      }
+      console.log(`Selected range: from ${start} to ${end}.`)
+    })
   }
 
   async handleOpenTableFile(event:any) {
@@ -708,6 +736,7 @@ class TableViewer extends Component<{}, TableState> {
 
               }}
               enableRangeSelection={true}
+              onRangeSelectionChanged={this.handleRangeSelection}
             >
             </AgGridReact>
           </Card.Body>
