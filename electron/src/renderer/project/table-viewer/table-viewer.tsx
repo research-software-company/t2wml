@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Button, Card, OverlayTrigger, Spinner, Tooltip } from 'react-bootstrap';
 
 // Table
+import 'ag-grid-enterprise';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
@@ -706,6 +707,7 @@ class TableViewer extends Component<{}, TableState> {
                 // cellRendererFramework: Cell
 
               }}
+              enableRangeSelection={true}
             >
             </AgGridReact>
           </Card.Body>
