@@ -10,6 +10,10 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 import { ChangeDetectionStrategyType } from 'ag-grid-react/lib/changeDetectionService';
 
+// License for the ag-grid
+import {LicenseManager} from 'ag-grid-enterprise';
+LicenseManager.setLicenseKey('For_Trialing_ag-Grid_Only-Not_For_Real_Development_Or_Production_Projects-Valid_Until-5_December_2020_[v2]_MTYwNzEyNjQwMDAwMA==9a9c2769d7dd42fd3631d803b12ae618');
+
 // console.log
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'

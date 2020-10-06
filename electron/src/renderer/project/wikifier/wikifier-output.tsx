@@ -6,6 +6,10 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
+// License for the ag-grid
+import {LicenseManager} from 'ag-grid-enterprise';
+LicenseManager.setLicenseKey('For_Trialing_ag-Grid_Only-Not_For_Real_Development_Or_Production_Projects-Valid_Until-5_December_2020_[v2]_MTYwNzEyNjQwMDAwMA==9a9c2769d7dd42fd3631d803b12ae618')
+
 // console.log
 import { WikifierData } from '../../common/general';
 import * as utils from '../../common/utils'
