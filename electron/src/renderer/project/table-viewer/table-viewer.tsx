@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // App
-import { Button, Card, OverlayTrigger, Spinner, Tooltip } from 'react-bootstrap';
+import { Button, Col, Card, Form, OverlayTrigger, Modal, Row, Spinner, Tooltip } from 'react-bootstrap';
 
 // Table
 import 'ag-grid-enterprise';
@@ -618,6 +618,32 @@ class TableViewer extends Component<{}, TableState> {
       }
   }
 
+  renderAnnotations() {
+    if ( !!this.gridApi ) {
+      const cellRanges = this.gridApi.getCellRanges();
+      return cellRanges.map((range, index) => {
+        let start = '';
+        let end = '';
+        if ( !!range.columns.length ) {
+          start += range.columns[0].colId;
+          if ( range.columns.length > 1 ) {
+            end += range.columns[range.columns.length-1].colId;
+          } else {
+            end += range.columns[0].colId;
+          }
+        }
+        if ( !!range.startRow ) {
+          start += range.startRow.rowIndex;
+        }
+        if ( !!range.endRow ) {
+          end += range.endRow.rowIndex;
+        }
+        return <div key={index}>Selected range: from {start} to {end}.</div>
+      })
+    }
+    return null
+  }
+
   render() {
     // console.log(this.state);
 
@@ -666,6 +692,66 @@ class TableViewer extends Component<{}, TableState> {
             >
               {titleHtml}
             </div>
+
+            <Modal show={this.state.showAnnotations} onHide={this.handleHideAnnotate}>
+
+              {/* loading spinner */}
+              <div className="mySpinner" hidden={!this.props.showSpinner}>
+                <Spinner animation="border" />
+              </div>
+
+              {/* header */}
+              <Modal.Header style={{ background: "whitesmoke" }}>
+                <Modal.Title>Annotate Selection</Modal.Title>
+              </Modal.Header>
+
+              {/* body */}
+              <Modal.Body>
+                <Form className="container">
+
+                  <Form.Group as={Row} style={{ marginTop: "1rem" }} onChange={(event: Event) => {
+                    this.setState({
+                      annotation: (event.target as HTMLInputElement).value,
+                    })
+                  }}>
+                    <Col sm="12" md="12">
+                      {this.renderAnnotations()}
+
+                      <br />
+                      <br />
+                      <br />
+
+                      <Form.Control
+                        ref={this.input}
+                        type="text"
+                        defaultValue={this.props.tempRenameProject}
+                        placeholder="annotation goes here"
+                        autoFocus={true}
+                        style={this.state.isNameVaild ? {} : { border: "1px solid red" }}
+                        onKeyPress={(event: any) => {
+                          if (event.key === "Enter") {
+                            // if press enter (13), then do create new project
+                            event.preventDefault();
+                          }
+                        }}
+                      />
+                    </Col>
+                  </Form.Group>
+
+                </Form>
+              </Modal.Body>
+
+              {/* footer */}
+              <Modal.Footer style={{ background: "whitesmoke" }}>
+                <Button variant="outline-dark" onClick={this.handleHideAnnotate} >
+                  Cancel
+                </Button>
+                <Button variant="dark" onClick={() => console.log('clicked')}>
+                  Submit
+                </Button>
+              </Modal.Footer>
+
+            </Modal>
 
             {/* button to upload table file */}
             <OverlayTrigger overlay={uploadToolTipHtml} placement="bottom" trigger={["hover", "focus"]}>
