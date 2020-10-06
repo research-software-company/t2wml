@@ -89,6 +89,10 @@ class TableViewer extends Component<{}, TableState> {
       columnDefs: columns,
       rowData: rows,
 
+      // annotations
+      showAnnotations: false,
+      showAnnotateButton: false,
+
       // temp
       selectedCell: new Cell(),
       yamlRegions: null,
@@ -101,6 +105,8 @@ class TableViewer extends Component<{}, TableState> {
     this.handleOpenWikifierFile = this.handleOpenWikifierFile.bind(this);
     this.handleSelectCell = this.handleSelectCell.bind(this);
     this.handleSelectSheet = this.handleSelectSheet.bind(this);
+    this.handleShowAnnotate = this.handleShowAnnotate.bind(this);
+    this.handleHideAnnotate = this.handleHideAnnotate.bind(this)
     this.handleRangeSelection = this.handleRangeSelection.bind(this);
     this.handleClearSelection = this.handleClearSelection.bind(this);
 
@@ -116,6 +122,19 @@ class TableViewer extends Component<{}, TableState> {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     // console.log("<TableViewer> inited ag-grid and retrieved its API");
+  }
+
+  async handleShowAnnotate() {
+    this.setState({
+      showAnnotations: true,
+    })
+  }
+
+  async handleHideAnnotate() {
+    this.setState({
+      showAnnotations: false,
+    })
+    this.handleClearSelection()
   }
 
   async handleRangeSelection(event:any) {
