@@ -156,6 +156,36 @@ Check out the [grammar guide](https://github.com/usc-isi-i2/t2wml-api/blob/maste
 ![t2wml-gui-demo](docs/demo/t2wml-gui-v1.3-output.gif)
 
 
+## Tests
+We have tests for both the backend and frontend
+
+### Backend Tests
+The backend uses `pytest` for running tests. To run the Backend tests, make sure you have activated the virtual Python environment and run:
+
+```sh
+cd backend
+pytest tests
+```
+
+You can also run coverage to analyze test coverage with:
+
+```sh
+cd backend
+coverage run -m pytest tests
+```
+
+### Frontend Tests
+Mocha is used for Frontend tests. To run them just type
+
+```sh
+cd electron
+yarn test
+```
+
+There are no frontend coverage tests.
+
+You can find information about writing frontend tests in the `electron/tests/README.md` file.
+
 ## FAQs
 <span id="faqs"></span>
 

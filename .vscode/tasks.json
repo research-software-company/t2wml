@@ -33,6 +33,14 @@
             "detail": "Look for errors and warnings in the entire code base"
         },
         {
+            "type": "npm",
+            "script": "test",
+            "path": "electron/",
+            "problemMatcher": [],
+            "label": "GUI Tests",
+            "detail": "Run the GUI tests"
+        },
+        {
             "type": "shell",
             "label": "Backend",
             "detail": "Runs the backend",
