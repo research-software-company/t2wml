@@ -1,28 +1,4 @@
-/*
- * Types returned from the server
- */
-
-interface SavedStateDTO {
-    current_data_file: string;
-    current_sheet: string;
-    current_wikifiers: string[];
-    current_yaml: string;
- }
-
-export interface ProjectDTO {
-    directory: string;
-    title: string;
-    data_files: { [key: string]: string[] };
-    yaml_files: string[];
-    wikifier_files: string[];
-    entity_files: string[];
-    yaml_sheet_associations: { [key: string]: { [key: string] : string[] } };
-    sparql_endpoint: string;
-    warn_for_empty_cells: boolean;
-    handle_calendar: string;
-    cache_id: string;
-    _saved_state: SavedStateDTO;
-}
+//response DTOs:
 
 export interface ResponseWithProjectDTO {
     project: ProjectDTO;
@@ -56,14 +32,52 @@ export interface CallWikifierServiceDTO extends ResponseWithLayersDTO {
     wikifierError: string;
 }
 
+//types:
+
+interface SavedStateDTO {
+    current_data_file: string;
+    current_sheet: string;
+    current_wikifiers: string[];
+    current_yaml: string;
+ }
+
+export interface ProjectDTO {
+    directory: string;
+    title: string;
+    data_files: { [key: string]: string[] };
+    yaml_files: string[];
+    wikifier_files: string[];
+    entity_files: string[];
+    yaml_sheet_associations: { [key: string]: { [key: string] : string[] } };
+    sparql_endpoint: string;
+    warn_for_empty_cells: boolean;
+    handle_calendar: string;
+    cache_id: string;
+    _saved_state: SavedStateDTO;
+}
+
+export interface TableDTO {
+    cells: string[][];
+    firstRowIndex: number;
+    dims: number[];
+}
+
+export interface EntitiesStatsDTO {
+    added: string[];
+    updated: string[];
+    failed: string[];
+}
+
 export type CellIndex = [number, number];
+
+
+//layers:
+
 export interface Entry {
     indices: CellIndex[];
 }
 
-
- 
-export type LayerType = "qnode" | "statement" | "error" | "type"| "cleaned";
+export type LayerType = "qnode" | "statement" | "error" | "type"| "cleaned" | "annotation";
 
 export interface LayerDTO<T extends Entry> {
     layerType: LayerType;
@@ -87,6 +101,7 @@ export interface LayersDTO {
     error?: LayerDTO<ErrorEntry>;
     type?: LayerDTO<TypeEntry>;
     cleaned?: LayerDTO<CleanEntry>;
+    annotation?: LayerDTO<AnnotationEntry>;
 }
 
 
@@ -117,14 +132,21 @@ export interface StatementEntry extends Entry{
     unit?: string
 }
 
-export interface TableDTO {
-    cells: string[][];
-    firstRowIndex: number;
-    dims: number[];
+
+//annotations:
+export interface AnnotationTypeArgs{
+    type: "MonolingualText" | "Quantity" | "Time" | "WikibaseItem";
+    language?: string;
+    unit?: string;
+    precision?: string;
+    calendar?: string;
+    format?: string;
 }
 
-export interface EntitiesStatsDTO {
-    added: string[];
-    updated: string[];
-    failed: string[];
+export interface AnnotationEntry extends Entry {
+    //indices: CellIndex[];
+    indexArguments: string[];
+    role: "mainSubject" | "property" | "dependentVar" | "qualifier";
+    typeArgs?: AnnotationTypeArgs;
 }
+
