@@ -1,5 +1,52 @@
 {
     "add_data_file": {
+        "layers": {
+            "error": {
+                "layerType": "error",
+                "entries": []
+            },
+            "statement": {
+                "layerType": "statement",
+                "entries": []
+            },
+            "cleaned": {
+                "layerType": "cleaned",
+                "entries": []
+            },
+            "type": {
+                "layerType": "type",
+                "entries": [
+                    {
+                        "indices": [],
+                        "type": "qualifier"
+                    },
+                    {
+                        "indices": [],
+                        "type": "item"
+                    },
+                    {
+                        "indices": [],
+                        "type": "data"
+                    },
+                    {
+                        "indices": [],
+                        "type": "majorError"
+                    },
+                    {
+                        "indices": [],
+                        "type": "minorError"
+                    }
+                ]
+            },
+            "qnode": {
+                "layerType": "qNode",
+                "entries": []
+            },
+            "annotation": {
+                "layerType": "annotation",
+                "entries": []
+            }
+        },
         "table": {
             "dims": [
                 8,
@@ -96,49 +143,6 @@
                     "Ethiopia"
                 ]
             ]
-        },
-        "layers": {
-            "qnode": {
-                "layerType": "qNode",
-                "entries": []
-            },
-            "error": {
-                "layerType": "error",
-                "entries": []
-            },
-            "statement": {
-                "layerType": "statement",
-                "entries": []
-            },
-            "cleaned": {
-                "layerType": "cleaned",
-                "entries": []
-            },
-            "type": {
-                "layerType": "type",
-                "entries": [
-                    {
-                        "indices": [],
-                        "type": "qualifier"
-                    },
-                    {
-                        "indices": [],
-                        "type": "item"
-                    },
-                    {
-                        "indices": [],
-                        "type": "data"
-                    },
-                    {
-                        "indices": [],
-                        "type": "majorError"
-                    },
-                    {
-                        "indices": [],
-                        "type": "minorError"
-                    }
-                ]
-            }
         }
     },
     "add_wikifier_file": {
@@ -821,7 +825,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B3"
+                        "cell": [
+                            2,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -846,10 +853,16 @@
                             {
                                 "property": "P17",
                                 "value": "Q21203",
-                                "cell": "I4"
+                                "cell": [
+                                    3,
+                                    8
+                                ]
                             }
                         ],
-                        "cell": "B4"
+                        "cell": [
+                            3,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -872,7 +885,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B5"
+                        "cell": [
+                            4,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -895,7 +911,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B6"
+                        "cell": [
+                            5,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -918,7 +937,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B7"
+                        "cell": [
+                            6,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -941,7 +963,10 @@
                                 "format": "%Y"
                             }
                         ],
-                        "cell": "B8"
+                        "cell": [
+                            7,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -964,7 +989,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B3"
+                        "cell": [
+                            2,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -989,10 +1017,16 @@
                             {
                                 "property": "P17",
                                 "value": "Q21203",
-                                "cell": "I4"
+                                "cell": [
+                                    3,
+                                    8
+                                ]
                             }
                         ],
-                        "cell": "B4"
+                        "cell": [
+                            3,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -1015,7 +1049,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B5"
+                        "cell": [
+                            4,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -1038,7 +1075,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B6"
+                        "cell": [
+                            5,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -1061,7 +1101,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B7"
+                        "cell": [
+                            6,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -1084,7 +1127,10 @@
                                 "format": "%Y"
                             }
                         ],
-                        "cell": "B8"
+                        "cell": [
+                            7,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -1107,7 +1153,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B3"
+                        "cell": [
+                            2,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -1132,10 +1181,16 @@
                             {
                                 "property": "P17",
                                 "value": "Q21203",
-                                "cell": "I4"
+                                "cell": [
+                                    3,
+                                    8
+                                ]
                             }
                         ],
-                        "cell": "B4"
+                        "cell": [
+                            3,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -1158,7 +1213,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B5"
+                        "cell": [
+                            4,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -1181,7 +1239,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B6"
+                        "cell": [
+                            5,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -1204,7 +1265,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B7"
+                        "cell": [
+                            6,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -1227,7 +1291,10 @@
                                 "format": "%Y"
                             }
                         ],
-                        "cell": "B8"
+                        "cell": [
+                            7,
+                            1
+                        ]
                     }
                 ],
                 "qnodes": {
@@ -1473,144 +1540,44 @@
     },
     "change_sheet": {
         "yamlContent": null,
-        "table": {
-            "dims": [
-                8,
-                14
-            ],
-            "firstRowIndex": 0,
-            "cells": [
-                [
-                    "",
-                    "",
-                    "",
-                    "",
-                    "unit:",
-                    "person",
-                    "person",
-                    "person",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ],
-                [
-                    "",
-                    "Incident ID",
-                    "Year",
-                    "Month",
-                    "Day",
-                    "UN",
-                    "INGO",
-                    "LNGO/NRCS",
-                    "Country",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ],
-                [
-                    "",
-                    "22",
-                    "bad date",
-                    "9",
-                    "24",
-                    "2",
-                    "0",
-                    "0",
-                    "Ethiopia",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "4"
-                ],
-                [
-                    "",
-                    "bad item",
-                    "1998",
-                    "6",
-                    "25",
-                    "0",
-                    "0",
-                    "0",
-                    "Aruba",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ],
-                [
-                    "",
-                    "73",
-                    "1999",
-                    "4",
-                    "",
-                    "bad value",
-                    "1",
-                    "0",
-                    "Afghanistant",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ],
-                [
-                    "",
-                    "103",
-                    "2000",
-                    "2",
-                    "",
-                    "",
-                    "",
-                    "",
-                    "Ethiopia",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ],
-                [
-                    "",
-                    "475",
-                    "2006",
-                    "9",
-                    "20",
-                    "0",
-                    "0",
-                    "0",
-                    "bad qualifier",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ],
-                [
-                    "",
-                    "782",
-                    "2008",
-                    "",
-                    "",
-                    "0",
-                    "0",
-                    "3",
-                    "Ethiopia",
-                    "",
-                    "",
-                    "",
-                    "",
-                    ""
-                ]
-            ]
-        },
         "layers": {
+            "error": {
+                "layerType": "error",
+                "entries": []
+            },
+            "statement": {
+                "layerType": "statement",
+                "entries": []
+            },
+            "cleaned": {
+                "layerType": "cleaned",
+                "entries": []
+            },
+            "type": {
+                "layerType": "type",
+                "entries": [
+                    {
+                        "indices": [],
+                        "type": "qualifier"
+                    },
+                    {
+                        "indices": [],
+                        "type": "item"
+                    },
+                    {
+                        "indices": [],
+                        "type": "data"
+                    },
+                    {
+                        "indices": [],
+                        "type": "majorError"
+                    },
+                    {
+                        "indices": [],
+                        "type": "minorError"
+                    }
+                ]
+            },
             "qnode": {
                 "layerType": "qNode",
                 "entries": [
@@ -1764,43 +1731,147 @@
                     }
                 ]
             },
-            "error": {
-                "layerType": "error",
+            "annotation": {
+                "layerType": "annotation",
                 "entries": []
-            },
-            "statement": {
-                "layerType": "statement",
-                "entries": []
-            },
-            "cleaned": {
-                "layerType": "cleaned",
-                "entries": []
-            },
-            "type": {
-                "layerType": "type",
-                "entries": [
-                    {
-                        "indices": [],
-                        "type": "qualifier"
-                    },
-                    {
-                        "indices": [],
-                        "type": "item"
-                    },
-                    {
-                        "indices": [],
-                        "type": "data"
-                    },
-                    {
-                        "indices": [],
-                        "type": "majorError"
-                    },
-                    {
-                        "indices": [],
-                        "type": "minorError"
-                    }
-                ]
             }
+        },
+        "table": {
+            "dims": [
+                8,
+                14
+            ],
+            "firstRowIndex": 0,
+            "cells": [
+                [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "unit:",
+                    "person",
+                    "person",
+                    "person",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "Incident ID",
+                    "Year",
+                    "Month",
+                    "Day",
+                    "UN",
+                    "INGO",
+                    "LNGO/NRCS",
+                    "Country",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "22",
+                    "bad date",
+                    "9",
+                    "24",
+                    "2",
+                    "0",
+                    "0",
+                    "Ethiopia",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "4"
+                ],
+                [
+                    "",
+                    "bad item",
+                    "1998",
+                    "6",
+                    "25",
+                    "0",
+                    "0",
+                    "0",
+                    "Aruba",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "73",
+                    "1999",
+                    "4",
+                    "",
+                    "bad value",
+                    "1",
+                    "0",
+                    "Afghanistant",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "103",
+                    "2000",
+                    "2",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Ethiopia",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "475",
+                    "2006",
+                    "9",
+                    "20",
+                    "0",
+                    "0",
+                    "0",
+                    "bad qualifier",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                [
+                    "",
+                    "782",
+                    "2008",
+                    "",
+                    "",
+                    "0",
+                    "0",
+                    "3",
+                    "Ethiopia",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            ]
         }
     },
     "wikify_region": {

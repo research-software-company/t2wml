@@ -5,7 +5,7 @@ from t2wml.api import KnowledgeGraph
 from app_config import CACHE_FOLDER, app
 from utils import numpy_converter
 
-__cache_version__ = "2" #should be changed every time a breaking change is introduced to results format.
+__cache_version__ = "3" #should be changed every time a breaking change is introduced to results format.
 
 def use_cache():
     #return True

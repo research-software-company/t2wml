@@ -98,173 +98,6 @@
             ]
         },
         "layers": {
-            "qnode": {
-                "layerType": "qNode",
-                "entries": [
-                    {
-                        "indices": [
-                            [
-                                2,
-                                1
-                            ]
-                        ],
-                        "id": "Qaid-security-22",
-                        "value": "22",
-                        "context": "main subject",
-                        "label": "Incident ID 22",
-                        "description": "incident related to aid worker security",
-                        "url": ""
-                    },
-                    {
-                        "indices": [
-                            [
-                                3,
-                                1
-                            ]
-                        ],
-                        "id": "Qaid-security-47",
-                        "value": "47",
-                        "context": "main subject",
-                        "label": "Incident ID 47",
-                        "description": "incident related to aid worker security",
-                        "url": ""
-                    },
-                    {
-                        "indices": [
-                            [
-                                4,
-                                1
-                            ]
-                        ],
-                        "id": "Qaid-security-73",
-                        "value": "73",
-                        "context": "main subject",
-                        "label": "Incident ID 73",
-                        "description": "incident related to aid worker security",
-                        "url": ""
-                    },
-                    {
-                        "indices": [
-                            [
-                                5,
-                                1
-                            ]
-                        ],
-                        "id": "Qaid-security-103",
-                        "value": "103",
-                        "context": "main subject",
-                        "label": "Incident ID 103",
-                        "description": "incident related to aid worker security",
-                        "url": ""
-                    },
-                    {
-                        "indices": [
-                            [
-                                6,
-                                1
-                            ]
-                        ],
-                        "id": "Qaid-security-475",
-                        "value": "475",
-                        "context": "main subject",
-                        "label": "Incident ID 475",
-                        "description": "incident related to aid worker security",
-                        "url": ""
-                    },
-                    {
-                        "indices": [
-                            [
-                                7,
-                                1
-                            ]
-                        ],
-                        "id": "Qaid-security-782",
-                        "value": "782",
-                        "context": "main subject",
-                        "label": "Incident ID 782",
-                        "description": "incident related to aid worker security",
-                        "url": ""
-                    },
-                    {
-                        "indices": [
-                            [
-                                0,
-                                5
-                            ],
-                            [
-                                0,
-                                6
-                            ],
-                            [
-                                0,
-                                7
-                            ]
-                        ],
-                        "id": "Qaid-security-U002",
-                        "value": "person",
-                        "context": "unit",
-                        "label": "",
-                        "description": "",
-                        "url": ""
-                    },
-                    {
-                        "indices": [
-                            [
-                                1,
-                                5
-                            ]
-                        ],
-                        "id": "Paid-security-002",
-                        "value": "UN",
-                        "context": "property",
-                        "label": "UN",
-                        "description": "",
-                        "url": ""
-                    },
-                    {
-                        "indices": [
-                            [
-                                1,
-                                6
-                            ]
-                        ],
-                        "id": "Paid-security-003",
-                        "value": "INGO",
-                        "context": "property",
-                        "label": "INGO",
-                        "description": "",
-                        "url": ""
-                    },
-                    {
-                        "indices": [
-                            [
-                                1,
-                                7
-                            ]
-                        ],
-                        "id": "Paid-security-004",
-                        "value": "LNGO/NRCS",
-                        "context": "property",
-                        "label": "LNGO/NRCS",
-                        "description": "",
-                        "url": ""
-                    },
-                    {
-                        "indices": [
-                            [
-                                3,
-                                8
-                            ]
-                        ],
-                        "id": "Q21203",
-                        "value": "Aruba",
-                        "context": "",
-                        "label": "Aruba",
-                        "description": "island country in the Caribbean, part of the Kingdom of the Netherlands",
-                        "url": "https://www.wikidata.org/wiki/Q21203"
-                    }
-                ]
-            },
             "error": {
                 "layerType": "error",
                 "entries": [
@@ -519,7 +352,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B3"
+                        "cell": [
+                            2,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -544,10 +380,16 @@
                             {
                                 "property": "P17",
                                 "value": "Q21203",
-                                "cell": "I4"
+                                "cell": [
+                                    3,
+                                    8
+                                ]
                             }
                         ],
-                        "cell": "B4"
+                        "cell": [
+                            3,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -570,7 +412,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B5"
+                        "cell": [
+                            4,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -593,7 +438,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B6"
+                        "cell": [
+                            5,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -616,7 +464,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B7"
+                        "cell": [
+                            6,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -639,7 +490,10 @@
                                 "format": "%Y"
                             }
                         ],
-                        "cell": "B8"
+                        "cell": [
+                            7,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -662,7 +516,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B3"
+                        "cell": [
+                            2,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -687,10 +544,16 @@
                             {
                                 "property": "P17",
                                 "value": "Q21203",
-                                "cell": "I4"
+                                "cell": [
+                                    3,
+                                    8
+                                ]
                             }
                         ],
-                        "cell": "B4"
+                        "cell": [
+                            3,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -713,7 +576,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B5"
+                        "cell": [
+                            4,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -736,7 +602,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B6"
+                        "cell": [
+                            5,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -759,7 +628,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B7"
+                        "cell": [
+                            6,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -782,7 +654,10 @@
                                 "format": "%Y"
                             }
                         ],
-                        "cell": "B8"
+                        "cell": [
+                            7,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -805,7 +680,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B3"
+                        "cell": [
+                            2,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -830,10 +708,16 @@
                             {
                                 "property": "P17",
                                 "value": "Q21203",
-                                "cell": "I4"
+                                "cell": [
+                                    3,
+                                    8
+                                ]
                             }
                         ],
-                        "cell": "B4"
+                        "cell": [
+                            3,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -856,7 +740,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B5"
+                        "cell": [
+                            4,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -879,7 +766,10 @@
                                 "format": "%Y-%m"
                             }
                         ],
-                        "cell": "B6"
+                        "cell": [
+                            5,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -902,7 +792,10 @@
                                 "format": "%Y-%m-%d"
                             }
                         ],
-                        "cell": "B7"
+                        "cell": [
+                            6,
+                            1
+                        ]
                     },
                     {
                         "indices": [
@@ -925,7 +818,10 @@
                                 "format": "%Y"
                             }
                         ],
-                        "cell": "B8"
+                        "cell": [
+                            7,
+                            1
+                        ]
                     }
                 ],
                 "qnodes": {
@@ -1166,6 +1062,177 @@
                         "type": "minorError"
                     }
                 ]
+            },
+            "qnode": {
+                "layerType": "qNode",
+                "entries": [
+                    {
+                        "indices": [
+                            [
+                                2,
+                                1
+                            ]
+                        ],
+                        "id": "Qaid-security-22",
+                        "value": "22",
+                        "context": "main subject",
+                        "label": "Incident ID 22",
+                        "description": "incident related to aid worker security",
+                        "url": ""
+                    },
+                    {
+                        "indices": [
+                            [
+                                3,
+                                1
+                            ]
+                        ],
+                        "id": "Qaid-security-47",
+                        "value": "47",
+                        "context": "main subject",
+                        "label": "Incident ID 47",
+                        "description": "incident related to aid worker security",
+                        "url": ""
+                    },
+                    {
+                        "indices": [
+                            [
+                                4,
+                                1
+                            ]
+                        ],
+                        "id": "Qaid-security-73",
+                        "value": "73",
+                        "context": "main subject",
+                        "label": "Incident ID 73",
+                        "description": "incident related to aid worker security",
+                        "url": ""
+                    },
+                    {
+                        "indices": [
+                            [
+                                5,
+                                1
+                            ]
+                        ],
+                        "id": "Qaid-security-103",
+                        "value": "103",
+                        "context": "main subject",
+                        "label": "Incident ID 103",
+                        "description": "incident related to aid worker security",
+                        "url": ""
+                    },
+                    {
+                        "indices": [
+                            [
+                                6,
+                                1
+                            ]
+                        ],
+                        "id": "Qaid-security-475",
+                        "value": "475",
+                        "context": "main subject",
+                        "label": "Incident ID 475",
+                        "description": "incident related to aid worker security",
+                        "url": ""
+                    },
+                    {
+                        "indices": [
+                            [
+                                7,
+                                1
+                            ]
+                        ],
+                        "id": "Qaid-security-782",
+                        "value": "782",
+                        "context": "main subject",
+                        "label": "Incident ID 782",
+                        "description": "incident related to aid worker security",
+                        "url": ""
+                    },
+                    {
+                        "indices": [
+                            [
+                                0,
+                                5
+                            ],
+                            [
+                                0,
+                                6
+                            ],
+                            [
+                                0,
+                                7
+                            ]
+                        ],
+                        "id": "Qaid-security-U002",
+                        "value": "person",
+                        "context": "unit",
+                        "label": "",
+                        "description": "",
+                        "url": ""
+                    },
+                    {
+                        "indices": [
+                            [
+                                1,
+                                5
+                            ]
+                        ],
+                        "id": "Paid-security-002",
+                        "value": "UN",
+                        "context": "property",
+                        "label": "UN",
+                        "description": "",
+                        "url": ""
+                    },
+                    {
+                        "indices": [
+                            [
+                                1,
+                                6
+                            ]
+                        ],
+                        "id": "Paid-security-003",
+                        "value": "INGO",
+                        "context": "property",
+                        "label": "INGO",
+                        "description": "",
+                        "url": ""
+                    },
+                    {
+                        "indices": [
+                            [
+                                1,
+                                7
+                            ]
+                        ],
+                        "id": "Paid-security-004",
+                        "value": "LNGO/NRCS",
+                        "context": "property",
+                        "label": "LNGO/NRCS",
+                        "description": "",
+                        "url": ""
+                    },
+                    {
+                        "indices": [
+                            [
+                                3,
+                                8
+                            ]
+                        ],
+                        "id": "Q21203",
+                        "value": "Aruba",
+                        "context": "",
+                        "label": "Aruba",
+                        "description": "island country in the Caribbean, part of the Kingdom of the Netherlands",
+                        "url": "https://www.wikidata.org/wiki/Q21203"
+                    }
+                ]
+            },
+            "annotation": {
+                "layerType": "annotation",
+                "entries": []
             }
         },
         "yamlContent": "statementMapping:\n  region:\n    - left: F\n      right: H\n      top: 3\n      bottom: 8\n  template:\n    item: =value[B, $row, \"main subject\"]\n    property: =item[$col, 2, \"property\"]\n    value: =value[$col, $row]\n    unit: =item[$col,1,\"unit\"]\n    qualifier:\n      - property: P585  # point in time\n        value: '=concat(value[C:E,$row],\"-\")'\n        calendar: Q1985727\n        precision: [day, month, year]\n        time_zone: 0\n        format: [\"%Y-%m-%d\", \"%Y-%m\", \"%Y\"]\n      - property: P17  # country\n        value: =item[I,$row]\n"

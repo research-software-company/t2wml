@@ -175,6 +175,7 @@ def get_yaml_layers(calc_params):
             item_cell = statement.get("cell", None)
             if item_cell:
                 item_indices[item_cell]=None
+                statement["cell"]=indexer(item_cell)
             
             qualifiers = statement.get("qualifier", None)
             if qualifiers:
@@ -182,6 +183,7 @@ def get_yaml_layers(calc_params):
                     qual_cell = qualifier.get("cell", None)
                     if qual_cell:
                         qualifier_indices[qual_cell]=None
+                        qualifier["cell"]=indexer(qual_cell)
             
             statementEntry=dict(indices=[indexer(cell)])#, qnodes=qnodes)
             statementEntry.update(**statements[cell])
