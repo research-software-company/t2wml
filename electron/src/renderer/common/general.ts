@@ -18,28 +18,19 @@ export interface ErrorMessage {
 
 
 export class Cell {
-    col: number | null = null;
-    row: number | null = null;
+    col: number;
+    row: number;
     value: string | null = null;
 
-    constructor(col?: number | null, row?: number | null, value?: string | null) {
-        if (col!=null && row!=null) {
-            this.col = col;
-            this.row = row;
-        }
+    constructor(col: number, row: number, value?: string | null) {
+        this.col = col;
+        this.row = row;
         if (value == undefined) {
             this.value = null;
         }
         else {
             this.value = value
         }
-    }
-
-    get isCell(): boolean{
-        if (this.col!=null && this.row!=null){
-            return true;
-        }
-        return false;
     }
 
 }

@@ -70,10 +70,10 @@ class TableContainer extends Component<{}, TableState> {
       currSheetName: null,
       multipleSheets: false,
 
-      selectedCell: new Cell(),
+      selectedCell: null,
       selectedQualifiers: [],
-      selectedMainSubject: new Cell(),
-      selectedProperty: new Cell(),
+      selectedMainSubject: null,
+      selectedProperty: null,
 
       mode: wikiStore.table.mode,
       showCleanedData: false,

@@ -36,7 +36,7 @@ class OutputTable extends Component<{}, TableState> {
     // init state
     this.state = {
       tableData: undefined,
-      selectedCell: new Cell(),
+      selectedCell: null,
       showOutputMenu: false,
       outputMenuPosition: [50, 70],
     };
@@ -233,11 +233,13 @@ class OutputTable extends Component<{}, TableState> {
     if (!selectedCell) { return; }
 
     const { row, col } = selectedCell;
-    const tableCell = tableData[row][col];
+    if (tableData) {
+      const tableCell = tableData![row][col];
 
-    // Only open the output menu if there's content
-    if ( tableCell.content ) {
-      this.openOutputMenu(event);
+      // Only open the output menu if there's content
+      if (tableCell && tableCell.content) {
+        this.openOutputMenu(event);
+      }
     }
   }
 
