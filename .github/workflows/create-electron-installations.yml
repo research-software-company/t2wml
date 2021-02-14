@@ -21,9 +21,11 @@ jobs:
       - name: Extract Code Signing Certificate
         run: |
           echo "${{ secrets.CSC_LINK }}" > $env:GITHUB_WORKSPACE/electron/certificate.base64
+          dir $env:GITHUB_WORKSPACE/electron/certificate.*
+
           type $env:GITHUB_WORKSPACE/electron/certificate.base64 | base64 -d > $env:GITHUB_WORKSPACE/electron/certificate.pfx
-          echo Certificate has been extracted
-          dir $env:GITHUB_WORKSPACE/electron/certificate.pfx
+          echo "Certificate has been extracted"
+          dir $env:GITHUB_WORKSPACE/electron/certificate.*
 
       - name: Try the certificate
         run: |
