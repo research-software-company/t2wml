@@ -27,11 +27,11 @@ jobs:
           pip install pyinstaller pywin32 semver
 
       - name: Extract Code Signing Certificate
-        uses: timheuer/base64-to-file@v1
-        id: extract_cert
-        with:
-          fileName: 'certificate.pfx'
-          encodedString: ${{ secrets.SOME_ENCODED_STRING }}
+        run: |
+          echo ${{ secrets.CSC_LINK }} > $env:GITHUB_WORKSPACE/electron/certificate.base64
+          type $env:GITHUB_WORKSPACE/electron/certificate.base64 | base64 -d > $env:GITHUB_WORKSPACE/electron/certificate.pfx
+          echo Certificate has been extracted
+          dir $env:GITHUB_WORKSPACE/electron/certificate.pfx
 
       - name: Create installer
         env:  # Replace unicode characters with ?
@@ -39,10 +39,9 @@ jobs:
           PYTHONLEGACYWINDOWSIOENCODING: true
           CI: false   # Otherwise React stops on warnings
           CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
-          CSC_LINK: ${{ steps.extract_cert.outputs.filePath }}
         run: |
+          $env:CSC_LINK="$env:GITHUB_WORKSPACE/electron/certificate.pfx"
           echo $env:CSC_LINK
-          dir $env:CSC_LINK
 
           cd $env:GITHUB_WORKSPACE/backend
           python packaging/prepare_installation.py --version ${{ github.ref }}
