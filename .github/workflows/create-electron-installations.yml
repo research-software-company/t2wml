@@ -25,16 +25,21 @@ jobs:
           pip install t2wml-api
           pip install -r requirements.txt
           pip install pyinstaller pywin32 semver
+      - name: Extract Code Signing Certificate
+        uses: timheuer/base64-to-file@v1
+        with:
+          id: extract_cert
+          fileName: 'certificate.pfx'
+          encodedString: ${{ secrets.SOME_ENCODED_STRING }}
       - name: Create installer
         env:  # Replace unicode characters with ?
           PYTHONIOENCODING: :replace
           PYTHONLEGACYWINDOWSIOENCODING: true
           CI: false   # Otherwise React stops on warnings
           CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
+          CSC_LINK: ${{ steps.extract_cert.outputs.filePath }}
         run: |
-          echo ${{ secrets.CSC_LINK }} | base64 -d > $env:GITHUB_WORKSPACE/electron/certificate.pfx
-          $env:CSC_LINK="$env:GITHUB_WORKSPACE/electron/certificate.pfx"
-          echo Certificate stored in $env:CSC_LINK
+          echo $env:CSC_LINK
           dir $env:CSC_LINK
 
           cd $env:GITHUB_WORKSPACE/backend
