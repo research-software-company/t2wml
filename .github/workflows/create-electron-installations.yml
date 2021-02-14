@@ -19,11 +19,13 @@ jobs:
         uses: actions/setup-node@v2-beta
 
       - name: Extract Code Signing Certificate
+        env:
+          CERTIFICATE: ${{ secrets.CSC_LINK }}
         run: |
-          echo "${{ secrets.CSC_LINK }}" > $env:GITHUB_WORKSPACE/electron/certificate.base64
+          echo "$env:CERTIFICATE" > $env:GITHUB_WORKSPACE/electron/certificate.base64
           dir $env:GITHUB_WORKSPACE/electron/certificate.*
 
-          type $env:GITHUB_WORKSPACE/electron/certificate.base64 | base64 -d > $env:GITHUB_WORKSPACE/electron/certificate.pfx
+          echo "$env:CERTIFICATE" | base64 -d > $env:GITHUB_WORKSPACE/electron/certificate.pfx
           echo "Certificate has been extracted"
           dir $env:GITHUB_WORKSPACE/electron/certificate.*
 
