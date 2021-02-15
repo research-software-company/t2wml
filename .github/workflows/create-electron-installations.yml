@@ -95,7 +95,7 @@ jobs:
         env:
           CI: false   # Otherwise React stops on warnings
           CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
-        run:
+        run: |
           export CSC_LINK=$GITHUB_WORKSPACE/electron/certificate.pfx
           python packaging/prepare_installation.py --version ${{ github.ref }}
       - name: Rename installer to canonical name
