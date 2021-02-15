@@ -1,4 +1,4 @@
-name: Create Electron Installations
+name: Base64 experiments
 on: push
 
 jobs:
@@ -35,7 +35,7 @@ jobs:
       - name: Dump secret to file
         run: |
           echo "${{secrets.TEST_BASE64}}" > secret.base64
-          cat secret.base64 | base64 -d -i > secret.txt
+          cat secret.base64 | base64 -d > secret.txt
           pwd
           ls -l secret*.*
           cat secret.txt
@@ -45,7 +45,7 @@ jobs:
           SECRET_CONTENT: ${{ secrets.TEST_BASE64 }}
         run: |
           echo "$SECURE_CONTENT" > secret.env.base64
-          cat secret.env.base64 | base64 -d -i > secret.env.txt
+          cat secret.env.base64 | base64 -d > secret.env.txt
           pwd
           ls -l secret.env*
           cat secret.env.txt
