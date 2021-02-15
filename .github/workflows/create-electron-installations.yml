@@ -22,20 +22,21 @@ jobs:
         shell: bash
         working-directory: electron
         run: |
-          echo "${{secrets.CSC_LINK}}" > certificate.pfx.base64
+          echo "${{secrets.CERTIFICATE_BASE64}}" > certificate.pfx.base64
           cat certificate.pfx.base64 | base64 -d > certificate.pfx
           pwd
           ls -l certificate*
 
       - name: Set backend environment
+        working-directory: backend
         run: |
-          cd $env:GITHUB_WORKSPACE/backend
           pip install --upgrade pip
           pip install t2wml-api
           pip install -r requirements.txt
           pip install pyinstaller pywin32 semver
 
       - name: Create installer
+        working-directory: backend
         env:  # Replace unicode characters with ?
           PYTHONIOENCODING: :replace
           PYTHONLEGACYWINDOWSIOENCODING: true
@@ -43,11 +44,10 @@ jobs:
           CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
         run: |
           $env:CSC_LINK="$env:GITHUB_WORKSPACE/electron/certificate.pfx"
-          cd $env:GITHUB_WORKSPACE/backend
           python packaging/prepare_installation.py --version ${{ github.ref }}
       - name: Rename installer to canonical name
+        working-directory: electron/out
         run: |
-          cd $env:GITHUB_WORKSPACE/electron/out
           copy "t2wml Setup*.exe" t2wml-setup.exe
       - name: Get the version
         id: get_version
@@ -76,8 +76,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2-beta
       - name: Set backend environment
+        working-directory: backend
         run: |
-          cd $GITHUB_WORKSPACE/backend
           pip install --upgrade setuptools pip
           pip install t2wml-api
           pip install -r requirements.txt
@@ -86,21 +86,21 @@ jobs:
         shell: bash
         working-directory: electron
         run: |
-          echo "${{secrets.CSC_LINK}}" > certificate.pfx.base64
+          echo "${{secrets.CERTIFICATE_BASE64}}" > certificate.pfx.base64
           cat certificate.pfx.base64 | base64 -d > certificate.pfx
           pwd
           ls -l certificate*
       - name: Create executable
+        working-directory: backend
         env:
           CI: false   # Otherwise React stops on warnings
           CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
         run:
-          cd $GITHUB_WORKSPACE/backend
           export CSC_LINK=$GITHUB_WORKSPACE/electron/certificate.pfx
           python packaging/prepare_installation.py --version ${{ github.ref }}
       - name: Rename installer to canonical name
+        working-directory: electron/out
         run: |
-          cd $GITHUB_WORKSPACE/electron/out
           ls -l
           cp t2wml*.pkg t2wml.pkg
 
@@ -132,21 +132,21 @@ jobs:
         uses: actions/setup-node@v2-beta
 
       - name: Set backend environment
+        working-directory: backend
         run: |
-          cd $GITHUB_WORKSPACE/backend
           pip install --upgrade setuptools pip
           pip install t2wml-api
           pip install -r requirements.txt
           pip install pyinstaller semver
       - name: Create executable
+        working-directory: backend
         env:
           CI: false   # Otherwise React stops on warnings
         run: |
-          cd $GITHUB_WORKSPACE/backend
           python packaging/prepare_installation.py --version ${{ github.ref }}
       - name: Rename installer to canonical name
+        working-directory: electron/out
         run: |
-          cd $GITHUB_WORKSPACE/electron/out
           cp t2wml*.AppImage t2wml.AppImage
       - name: Get the version
         id: get_version
