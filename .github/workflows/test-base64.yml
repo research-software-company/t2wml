@@ -11,11 +11,9 @@ jobs:
       - name: Dump secret to file
         shell: bash
         run: |
-          echo "${{secrets.TEST_BASE64}}" > book.zip.base64
-          cat book.zip.base64 | base64 -d > book.zip
-          unzip book.zip
-          pwd
-          ls -l book*
+          echo "${{secrets.CSC_LINK}}" > certificate.pfx.base64
+          cat certificate.pfx.base64 | base64 -d > certificate.pfx
+          ls -l certificate*
 
   mac:
     name: Try base64 on Mac
@@ -25,8 +23,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Dump secret to file
         run: |
-          echo "${{secrets.TEST_BASE64}}" > book.zip.base64
-          cat book.zip.base64 | base64 -d > book.zip
-          unzip book.zip
-          pwd
-          ls -l book*
+          export CSC_LINK=$GITHUB_WORKSPACE/electron/certificate.pfx
+          echo "${{secrets.CSC_LINK}}" > certificate.pfx.base64
+          cat certificate.pfx.base64 | base64 -d > certificate.pfx
+          ls -l certificate*
