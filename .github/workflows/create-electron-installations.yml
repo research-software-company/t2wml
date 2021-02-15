@@ -22,7 +22,7 @@ jobs:
         shell: bash
         working-directory: electron
         run: |
-          echo "${{secrets.CSC_LINK}} > certificate.pfx.base64
+          echo "${{secrets.CSC_LINK}}" > certificate.pfx.base64
           cat certificate.pfx.base64 | base64 -d > certificate.pfx
           pwd
           ls -l certificate*
@@ -86,7 +86,7 @@ jobs:
         shell: bash
         working-directory: electron
         run: |
-          echo "${{secrets.CSC_LINK}} > certificate.pfx.base64
+          echo "${{secrets.CSC_LINK}}" > certificate.pfx.base64
           cat certificate.pfx.base64 | base64 -d > certificate.pfx
           pwd
           ls -l certificate*
