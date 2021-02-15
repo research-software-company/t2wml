@@ -11,7 +11,7 @@ jobs:
       - name: Dump secret to file
         shell: bash
         run: |
-          echo "${{secrets.CSC_LINK}}" > certificate.pfx.base64
+          echo "${{secrets.CERTIFICATE_BASE64}}" > certificate.pfx.base64
           cat certificate.pfx.base64 | base64 -d > certificate.pfx
           ls -l certificate*
 
@@ -24,6 +24,8 @@ jobs:
       - name: Dump secret to file
         run: |
           export CSC_LINK=$GITHUB_WORKSPACE/electron/certificate.pfx
-          echo "${{secrets.CSC_LINK}}" > certificate.pfx.base64
+          echo "$CSC_LINK"
+
+          echo "${{secrets.CERTIFICATE_BASE64}}" > certificate.pfx.base64
           cat certificate.pfx.base64 | base64 -d > certificate.pfx
           ls -l certificate*
