@@ -19,20 +19,13 @@ jobs:
         uses: actions/setup-node@v2-beta
 
       - name: Extract Code Signing Certificate
-        env:
-          CERTIFICATE: ${{ secrets.CSC_LINK }}
+        shell: bash
+        working-directory: electron
         run: |
-          echo "$env:CERTIFICATE" > $env:GITHUB_WORKSPACE/electron/certificate.base64
-          dir $env:GITHUB_WORKSPACE/electron/certificate.*
-
-          echo "$env:CERTIFICATE" | base64 -d > $env:GITHUB_WORKSPACE/electron/certificate.pfx
-          echo "Certificate has been extracted"
-          dir $env:GITHUB_WORKSPACE/electron/certificate.*
-
-      - name: Try the certificate
-        run: |
-          $env:CSC_LINK="$env:GITHUB_WORKSPACE/electron/certificate.pfx"
-          echo $env:CSC_LINK
+          echo "${{secrets.CSC_LINK}} > certificate.pfx.base64
+          cat certificate.pfx.base64 | base64 -d > certificate.pfx
+          pwd
+          ls -l certificate*
 
       - name: Set backend environment
         run: |
@@ -50,8 +43,6 @@ jobs:
           CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
         run: |
           $env:CSC_LINK="$env:GITHUB_WORKSPACE/electron/certificate.pfx"
-          echo $env:CSC_LINK
-
           cd $env:GITHUB_WORKSPACE/backend
           python packaging/prepare_installation.py --version ${{ github.ref }}
       - name: Rename installer to canonical name
@@ -91,13 +82,21 @@ jobs:
           pip install t2wml-api
           pip install -r requirements.txt
           pip install pyinstaller semver
+      - name: Extract Code Signing Certificate
+        shell: bash
+        working-directory: electron
+        run: |
+          echo "${{secrets.CSC_LINK}} > certificate.pfx.base64
+          cat certificate.pfx.base64 | base64 -d > certificate.pfx
+          pwd
+          ls -l certificate*
       - name: Create executable
         env:
           CI: false   # Otherwise React stops on warnings
-          CSC_LINK: ${{ secrets.CSC_LINK }}
           CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
-        run: |
+        run:
           cd $GITHUB_WORKSPACE/backend
+          export CSC_LINK=$GITHUB_WORKSPACE/electron/certificate.pfx
           python packaging/prepare_installation.py --version ${{ github.ref }}
       - name: Rename installer to canonical name
         run: |
