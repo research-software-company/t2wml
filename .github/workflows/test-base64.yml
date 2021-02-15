@@ -9,12 +9,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Dump secret to file
+        shell: bash
         run: |
           echo "${{secrets.TEST_BASE64}}" > book.zip.base64
-          type book.zip.base64 | base64 -d -i > book.zip
+          cat book.zip.base64 | base64 -d > book.zip
           unzip book.zip
           pwd
-          dir book*.*
+          ls -l book*
 
   mac:
     name: Try base64 on Mac
