@@ -1,0 +1,47 @@
+name: Create Electron Installations
+on: push
+
+jobs:
+  windows:
+    name: Try base64 on Windows
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Dump secret to file
+        run: |
+          echo "${{secrets.TEST_BASE64}}" > \secret.base64
+          type \secret.base64 | base64 -d -i > \secret.txt
+          dir \secret*.*
+          type \secret.txt
+
+      - name: Move secret to env
+        env:
+          SECRET_CONTENT: ${{ secrets.TEST_BASE64 }}
+        run: |
+          echo "${{secrets.TEST_BASE64}}" > \secret.env.base64
+          type \secret.env.base64 | base64 -d -i > \secret.env.txt
+          dir \secret.env*
+          type \secret.env.txt
+
+  mac:
+    name: Create the Mac OS Installation
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Dump secret to file
+        run: |
+          echo "${{secrets.TEST_BASE64}}" > /secret.base64
+          cat /secret.base64 | base64 -d -i > \secret.txt
+          ls -l /secret*.*
+          cat /secret.txt
+
+      - name: Move secret to env
+        env:
+          SECRET_CONTENT: ${{ secrets.TEST_BASE64 }}
+        run: |
+          echo "$SECURE_CONTENT" > /secret.env.base64
+          cat /secret.env.base64 | base64 -d -i > /secret.env.txt
+          ls -l /secret.env*
+          cat /secret.env.txt
