@@ -21,11 +21,15 @@ jobs:
       - name: Extract Code Signing Certificate
         shell: bash
         working-directory: electron
+        env:
+          CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
         run: |
           echo "${{secrets.CERTIFICATE_BASE64}}" > certificate.pfx.base64
           cat certificate.pfx.base64 | base64 -d > certificate.pfx
           pwd
           ls -l certificate*
+
+          echo $CSC_KEY_PASSWORD | base64
 
       - name: Set backend environment
         working-directory: backend
